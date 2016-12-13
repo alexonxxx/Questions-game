@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Usuari</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<body style="background: url(http://fullhdpictures.com/wp-content/uploads/2016/03/Blur-Backgrounds.jpg) no-repeat center fixed; background-size: cover; padding-left: 10%; padding-right: 10%">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top"
+     style="background-color: rgba(40,40,40,0.9); border-bottom-style: none;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:8080/" style="background-color: rgba(150,150,150,0.9); color: rgba(40,40,40,1); font-weight: bold">Principal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8080/entrarPreguntesFlow" style="color: white; font-weight: bold">Entrar
+                    preguntes</a></li>
+                <li><a href="#about" style="color: white; font-weight: bold">NNNN</a></li>
+                <li>
+                    <a href="http://localhost:8080/Weather" style="color: white; font-weight: bold">Weather</a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="margin-top: 10%">
+    <div class="list-group" style="background-color: white; border-radius: 4px; padding-left: 3%">
+        <h1>Nom d'usuari: <span th:text="${usuari.nom}"/></h1>
+    </div>
+    <ul class="list-group" style="background-color: white; border-radius: 4px; list-style: none; padding-left: 3%; padding-right: 3%; padding-bottom: 2%">
+        <div style="margin-top: 2%"> <h3>Puntuacions</h3> </div>
+        <li style="font-weight: bold">
+            Puntuació total: <div class="list-group-item" style="font-weight: bold;" th:text="${usuari.puntuacioTotal}">Puntuació total</div>
+            Preguntes Moderades: <div class="list-group-item" style="font-weight: bold;" th:text="${usuari.preguntesModerades}">Preguntes Moderades</div>
+            Preguntes Proposades: <div class="list-group-item" style="font-weight: bold;" th:text="${usuari.preguntesProposades}">Preguntes Proposades</div>
+        </li>
+    </ul>
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"/>
+</body>
+</html>

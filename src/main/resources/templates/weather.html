@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'/>
+    <style>
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+    </style>
+</head>
+<body style="background: url(http://lorempixel.com/1920/1080/city) no-repeat center fixed; background-size: cover;">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top"
+     style="background-color: rgba(40,40,40,0.9); border-bottom-style: none;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:8080/" style="color: white ; font-weight: bold">Principal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8080/entrarPreguntesFlow" style="color: white; font-weight: bold">Entrar
+                    preguntes</a></li>
+                <li><a href="#about" style="color: white; font-weight: bold">NNNN</a></li>
+                <li><a href="http://localhost:8080/Weather"
+                       style="background-color: rgba(150,150,150,0.9); color: rgba(40,40,40,1); font-weight: bold">Weather</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 10%">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"
+                           style="background-color: rgba(40,40,40,0.9);color: white; font-weight: bold" id="search"
+                           placeholder="Buscar"/>
+                    <span class="input-group-addon">
+	                        <button type="submit" onclick="send()">
+	                            <span class="glyphicon glyphicon-search" style="color: black;"></span>
+	                        </button>
+	                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-12">
+    <div class="col-md-3">
+
+    </div>
+            <div class="container modal-content col-md-6" style="background-color: rgba(40,40,40,0.9); border-radius: 10px; margin-top: 5%;border-style: solid;
+ border-color: whitesmoke;">
+                <div class="modal-header">
+                    <h2 style="text-align: center; color: white" th:text="${forecast.city}"></h2>
+                    <h5 style="text-align: center; color: white" th:text="${forecast.date}"></h5>
+                </div>
+                <div class="modal-body col-md-12">
+                    <div class="col-md-4">
+                        <img class="center-block" th:src="${forecast.icon}" id="weatherImg"
+                             style="width: 60px; height: 60px"/>
+                        <label style="font-weight: bold; text-align: center; color: white" class="center-block"
+                               th:text="${forecast.main}"></label>
+                    </div>
+       <div class="col-md-7">
+            <li style="list-style: none">
+                <div>
+                    <row style="width: 100px; color: white">Temperatura:</row>
+                    <row style="font-weight: bold;width: 50px; color: white" th:text="${forecast.temp}"></row>
+                </div>
+                <div>
+                    <row style="width: 100px; color: white">Temperatura màxima:</row>
+                    <row style="font-weight: bold;width: 50px; color: white" th:text="${forecast.MaxTemp}"></row>
+                </div>
+                <div>
+                    <row style="width: 100px; color: white">Temperatura minima:</row>
+                    <row style="font-weight: bold;width: 50px; color: white" th:text="${forecast.MinTemp}"></row>
+                </div>
+                <div>
+                    <row style="width: 100px; color: white">Humitat:</row>
+                    <row style="font-weight: bold;width: 50px; color: white" th:text="${forecast.humidity}"></row>
+                </div>
+            </li>
+        </div>
+    </div>
+
+    <div class="col-md-3"></div>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script>
+
+
+    function send() {
+        var search = document.getElementById("search").value;
+        document.location.href = search;
+    }
+
+</script>
+
+</body>
+</html>

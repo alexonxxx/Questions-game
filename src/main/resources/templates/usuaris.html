@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Usuaris</title>
+    <style type="text/css">
+        body{
+            font-family: sans-serif;
+            background-image: url("https://cadcamcae.files.wordpress.com/2009/01/2560x1600.jpg");
+            Position: absolute;
+            left: 500px;
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>Llista d'usuaris</h1>
+<ul>
+    <li th:each="usuari : ${usuariList}"
+        th:id="'usuari_' + ${usuari.nom}">
+        <div th:text="${usuari.nom}">Nom</div>
+        <div th:text="${usuari.puntuacioTotal}">Puntuació total</div>
+        <div th:text="${usuari.preguntesModerades}">Preguntes Moderades</div>
+        <div th:text="${usuari.preguntesProposades}">Preguntes Proposades</div>
+    </li>
+</ul>
+</body>
+</html>

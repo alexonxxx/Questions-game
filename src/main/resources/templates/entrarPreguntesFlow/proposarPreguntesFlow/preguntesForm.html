@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+ 
+    <title>Crear Pregunta Proposada</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<body style="background: url(http://fullhdpictures.com/wp-content/uploads/2016/03/Blur-Backgrounds.jpg) no-repeat center fixed; background-size: cover; padding-left: 10%; padding-right: 10%">
+
+		<form method="POST" th:object="${preguntaProposada}" th:action="${flowExecutionUrl}">
+
+	
+   		 <div calss="container" style="background-color: #cfd2cc; padding-top: 1%; padding-bottom: 2%;padding-left: 3%; padding-right: 3%; margin-top: 5%; border-radius: 15px;">
+		 	<h4 style="text-align: center; font-size: 30px">Proposar pregunta</h4>
+		    <input type="text" class="form-control input-sm chat-input" th:field="*{enunciat}" placeholder="Enunciat" /><br/>
+		    <select type="text" class="form-control" th:field="*{categoria}" placeholder="Categoria(CIENCIA,ESPORTS,ENTRETENIMENT,HISTORIA,ART,GEOGRAFIA)">
+				  <option value="CIENCIA">CIENCIA</option>
+				  <option value="ESPORTS">ESPORTS</option>
+				  <option value="ENTRETENIMENT">ENTRETENIMENT</option>
+				  <option value="HISTORIA">HISTORIA</option>
+				  <option value="ART">ARTE</option>
+				  <option value="GEOGRAFÍA">GEOGRAFIA</option>
+			</select>
+				<br/>
+		    <input type="text" class="form-control input-sm chat-input" th:field="*{resposta1}" placeholder="Resposta 1 (Correcta)" /><br/>
+		    <input type="text" class="form-control input-sm chat-input" th:field="*{resposta2}" placeholder="Resposta 2"/><br/>
+		    <input type="text" class="form-control input-sm chat-input" th:field="*{resposta3}" placeholder="Resposta 3"/><br/>
+		    <input type="text" class="form-control input-sm chat-input" th:field="*{resposta4}" placeholder="Resposta 4"/><br/>
+		    <input type="submit" class="btn btn-primary" value="Create Pregunta" name="_eventId_preguntaEntered"/>
+		    <input type="submit" class="btn btn-primary" value="Cancel" name="_eventId_cancel"/>
+		    </div>
+		
+		</form>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

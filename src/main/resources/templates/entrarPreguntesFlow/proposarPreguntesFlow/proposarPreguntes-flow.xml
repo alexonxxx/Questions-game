@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <input name="usuari" required="true"/>
+    <on-start>
+        <evaluate result="flowScope.bagPreguntesProposades"
+                  expression="new com.ballogomezharo.domain.BagPreguntesProposades()"/>
+    </on-start>
+
+    <view-state id="showPreguntesProposades" view="entrarPreguntesFlow/proposarPreguntesFlow/veureUsuari"
+                model="usuari">
+        <transition on="enterPregunta" to="crearPregunta"/>
+        <transition on="finishedPreguntes" to="finish"/>
+        <transition on="cancel" to="cancel"/>
+    </view-state>
+
+    <view-state id="crearPregunta" view="entrarPreguntesFlow/proposarPreguntesFlow/preguntesForm" model="preguntaProposada">
+        <on-entry>
+            <set name="flowScope.preguntaProposada" value="new com.ballogomezharo.domain.PreguntaProposada(usuari)"/>
+        </on-entry>
+        <transition on="preguntaEntered" to="showPreguntesProposades">
+            <evaluate expression="bagPreguntesProposades.addPreguntaProposada(flowScope.preguntaProposada)"/>
+        </transition>
+
+        <transition on="cancel" to="cancel"/>
+
+
+    </view-state>
+
+
+    <end-state id="finish">
+        <output name="bagPreguntesProposades"/>
+    </end-state>
+
+    <end-state id="cancel"/>
+    <global-transitions>
+        <transition on="cancel" to="cancel"></transition>
+    </global-transitions>
+
+
+</flow>

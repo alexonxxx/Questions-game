@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Puntuacions per Categoria</title>
+</head>
+<body>
+<h1> Puntuacions de cada categoria</h1>
+<ul>
+   <li th:each="puntuacio : ${puntuacioList}"
+        th:id="'puntuacio_' + ${puntuacio.categoria}">
+    Categoria: <div th:text="${puntuacio.categoria}">Categoria</div>
+    Respostes correctes: <div th:text="${puntuacio.correctes}">Correctes</div>
+    Respostes incorrectes: <div th:text="${puntuacio.incorrectes}">Incorrectes</div>
+    Percentatge de Respostes <div th:text="${puntuacio.percentatgeCorrectes}">Percentatge</div>
+
+    </li>
+</ul>
+
+</body>
+</html>

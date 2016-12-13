@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Pregunta tribial</title>
+    <style type="text/css">
+
+        input {
+            margin: 20px 0;
+            line-height: 34px;
+            top:10%;
+            left: 25%;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            outline:none;
+            width:50%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="list-group" style="background-color: white; border-radius: 4px; padding-left: 3%">
+    <h1>Pregunta: <span th:text="${pregunta.enunciat}"/></h1>
+</div>
+<form method="POST" th:object="${pregunta}"  th:action="${flowExecutionUrl}">
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <input type="submit" th:value="${pregunta.resposta1}" />
+
+            <input  type="submit" th:value="${pregunta.resposta2}"  />
+
+
+            <input  type="submit"  th:value="${pregunta.resposta3}"  />
+            <input  type="submit"  th:value="${pregunta.resposta4}"  />
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+</form>
+
+
+</body>
+</html>

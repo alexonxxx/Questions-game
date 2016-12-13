@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+      http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+
+    <var name="usuari" class="com.ballogomezharo.domain.Usuari" />
+    <var name="bagPreguntesProposades" class="com.ballogomezharo.domain.BagPreguntesProposades" />
+
+    
+    <on-start>
+        <evaluate expression="userUseCases.retornarUsuari()"
+      result="usuari"></evaluate>
+    </on-start>
+
+
+    <subflow-state id="proposarPreguntes" subflow="entrarPreguntesFlow/proposarPreguntesFlow">
+        <input name="usuari" value="usuari"/>
+        <output name="bagPreguntesProposades"/>
+        <transition on="finish" to="goodBye"/>
+
+    </subflow-state>
+    <view-state id="goodBye" view="entrarPreguntesFlow/veureUsuariFinal">
+        <transition on="proceed" to="saveBag"/>
+    </view-state>
+
+    <action-state id="saveBag">
+        <evaluate expression="userUseCases.addBag(usuari,bagPreguntesProposades)"/>
+        <transition on-exception="com.ballogomezharo.exception.CategoriaNotFoundException" to="notFound"/>
+        <transition to="endState"/>
+    </action-state>
+
+    <end-state id="endState" view="externalRedirect:contextRelative:/usuaris/#{usuari.nom}"/>
+
+    <end-state id="cancel" view="externalRedirect:/canceledFlow.html"/>
+
+    <end-state id="notFound" view="externalRedirect:/categoriaNotFound.html"/>
+    <global-transitions>
+        <transition on="cancel" to="cancel"></transition>
+    </global-transitions>
+    </flow>

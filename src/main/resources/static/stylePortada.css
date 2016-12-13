@@ -1,0 +1,48 @@
+body{
+    font-family: sans-serif;
+    background-image: url("https://cadcamcae.files.wordpress.com/2009/01/2560x1600.jpg");
+    Position: absolute;
+    left: 500px;
+    top:150px;
+}
+img{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 50px;
+}
+
+h1{
+    position: relative;
+    left:70px;
+}
+
+.spittleList h1 {
+    font-size: 16pt;
+}
+
+.spittleList ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.spittleList ul li:first-child {
+    border-top: 0px;
+}
+
+.spittleList ul li {
+    border-top: 1px solid #cccccc;
+}
+
+.spittleTime {
+    font-size: 8pt;
+}
+
+.spittleLocation {
+    font-size: 8pt;
+}
+
+.spittleForm h1 {
+    font-size: 16pt;
+}
