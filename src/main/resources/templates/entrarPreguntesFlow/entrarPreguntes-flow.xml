@@ -32,7 +32,7 @@
 
     <end-state id="endState" view="externalRedirect:contextRelative:/usuaris/#{usuari.nom}"/>
 
-    <end-state id="cancel" view="externalRedirect:/canceledFlow.html"/>
+    <end-state id="cancel" view="externalRedirect:http://localhost:8080/"/>
 
     <end-state id="notFound" view="externalRedirect:/categoriaNotFound.html"/>
     <global-transitions>

@@ -73,10 +73,10 @@ public class ControladorPartida {
         this.jugador.setPuntuacioTotal(punt+this.partida.getRespostesCorrectes());
     }
 
-    public void comprobarResposta(Resposta resposta, Categoria categoria) {
-    int index;
+    public boolean comprobarResposta(String resposta, Categoria categoria) {
+        int index;
 
-        boolean correcte= this.partida.comprobarResposta(cont,resposta);
+
         if(categoria.getCategoria().equals("CIENCIA")){
             index=0;
         }else {
@@ -102,19 +102,22 @@ public class ControladorPartida {
 
         Puntuacio p=this.jugador.getPuntacions().get(index);
         System.out.println(p.getCategoria());
+        boolean correcte= this.partida.comprobarResposta(cont,resposta);
         if(correcte){
 
             p.setCorrectes(p.getCorrectes()+1);
+
 
         }
         else{
             p.setIncorrectes(p.getIncorrectes()+1);
         }
-        System.out.println(p.getIncorrectes());
 
         cont++;
+        return correcte;
     }
-    }
+
+}
 
 
 

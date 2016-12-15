@@ -3,13 +3,59 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Partida Nova</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'></link>
 </head>
-<body>
-<h1>Començar Partida</h1>
-Hi ha 10 preguntes de diferents categories per contestar.
-4 opcions de resposta per cada categoria.
-<form method="POST">
-<input type="submit"  class="btn btn-primary btn-lg btn-block" value="Jugar" />
-</form>
+<body style="background: url(http://fullhdpictures.com/wp-content/uploads/2016/03/Blur-Backgrounds.jpg) no-repeat center fixed; background-size: cover;">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top"
+     style="background-color: rgba(40,40,40,0.9); border-bottom-style: none;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:8080/" style="color: white; font-weight: bold">Principal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8080/entrarPreguntesFlow" style="color: white; font-weight: bold">Entrar
+                    preguntes</a></li>
+                <li>
+                    <a href="http://localhost:8080/Weather" style="color: white; font-weight: bold">Weather</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8080/partidaNova" style="background-color: rgba(150,150,150,0.9); color: rgba(40,40,40,1); font-weight: bold">Nova partida</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8080/puntuacio" style="color: white; font-weight: bold">Puntuació</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="col-md-12" >
+<div class="col-md-3"></div>
+<div class="container col-md-6 modal-content" style="background-color: white; margin-top: 15%">
+<div class="modal-header">
+<h1 style="text-align: center">Començar Partida</h1>
+	<h5 style="text-align: center;">Hi ha 10 preguntes de diferents categories per contestar.
+	4 opcions de resposta per cada categoria.</h5>
+	</div>
+	<div class="modal-body">
+	<form method="POST">
+	<input type="submit"  class="btn btn-primary" value="Jugar" style="width: 100%" />
+	</form>
+	</div>
+</div>
+<div class="col-md-3"></div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>	
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 </body>
 </html>

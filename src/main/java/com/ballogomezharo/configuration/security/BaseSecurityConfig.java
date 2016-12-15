@@ -16,22 +16,21 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
 
         http
-             .formLogin() //a login form is showed when no authenticated request
-                .loginPage("/login")
-                .and()
+
             .authorizeRequests()
+
 
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
-                .mvcMatchers("/createuser").permitAll()
-                .mvcMatchers("/usuaris").permitAll()
                 .mvcMatchers("/login").permitAll()
+                .mvcMatchers("/createuser").permitAll()
                 .mvcMatchers("/partidaNova").authenticated()
                 .mvcMatchers("/menuInicial").authenticated()
                 .mvcMatchers("/puntuacio").authenticated()
+                .mvcMatchers("/").authenticated()
                 .antMatchers("/entrarPreguntesFlow").authenticated()
-                .anyRequest().permitAll()
-                .and()
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/login").and()
 
             .rememberMe()
                 .tokenValiditySeconds(2419200)
@@ -39,7 +38,7 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
             .logout()
-                    .logoutSuccessUrl("/byebye"); //where to go when logout is successful
+                    .logoutSuccessUrl("/login"); //where to go when logout is successful
 
 
         http

@@ -3,19 +3,55 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Puntuacions per Categoria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'></link>
 </head>
-<body>
-<h1> Puntuacions de cada categoria</h1>
-<ul>
-   <li th:each="puntuacio : ${puntuacioList}"
-        th:id="'puntuacio_' + ${puntuacio.categoria}">
-    Categoria: <div th:text="${puntuacio.categoria}">Categoria</div>
-    Respostes correctes: <div th:text="${puntuacio.correctes}">Correctes</div>
-    Respostes incorrectes: <div th:text="${puntuacio.incorrectes}">Incorrectes</div>
-    Percentatge de Respostes <div th:text="${puntuacio.percentatgeCorrectes}">Percentatge</div>
+<body style="padding-left: 10%; padding-right: 10%; background: url(http://fullhdpictures.com/wp-content/uploads/2016/03/Blur-Backgrounds.jpg) no-repeat center fixed; background-size: cover;">
+<nav class="navbar navbar-default navbar-fixed-top"
+     style="background-color: rgba(40,40,40,0.9); border-bottom-style: none;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:8080/" style="color: white; font-weight: bold">Principal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:8080/entrarPreguntesFlow" style="color: white; font-weight: bold">Entrar
+                    preguntes</a></li>
+                <li>
+                    <a href="http://localhost:8080/Weather" style="color: white; font-weight: bold">Weather</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8080/partidaNova" style="color: white; font-weight: bold">Nova partida</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8080/puntuacio" style="background-color: rgba(150,150,150,0.9); color: rgba(40,40,40,1); font-weight: bold">Puntuació</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    </li>
-</ul>
+<h1 style="text-align: center; color: white; margin-top: 10%;"> Puntuacions de cada categoria</h1>
 
+		<ul class="list-group" style="list-style: none; padding-left: 15%; padding-right: 15%; ">
+		   <li style="width: 230px; margin-bottom: 2%; margin-left: 20px; float: left; box-shadow:4px 4px 10px #555;" th:each="puntuacio : ${puntuacioList}" th:id="'puntuacio_' + ${puntuacio.categoria}">
+	        
+			    <div style="font-weight: bold" class="list-group-item" th:text="'Categoría: ' + ${puntuacio.categoria}"></div>
+			    <div style="font-weight: bold" class="list-group-item" th:text="'Respuestas correctas: ' + ${puntuacio.correctes}"></div>
+			    <div style="font-weight: bold" class="list-group-item" th:text="'Respuestas incorrectas: ' + ${puntuacio.incorrectes}"></div>
+			    <div style="font-weight: bold" class="list-group-item" th:text="'Porcentaje de aciertos: ' + ${puntuacio.percentatgeCorrectes}"></div>
+		    </li>
+		</ul>
+	
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>	
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 </body>
 </html>

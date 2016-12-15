@@ -25,11 +25,20 @@
                 <div class="form-group">
 
                     <input name="submit" class="btn btn-block btn-lg btn-primary" type="submit" value="Login"/>
+                    <input name="submit" class="btn btn-block btn-lg btn-primary" type="button" value="Create user" onclick="crearUsuari()" />
                 </div>
 
             </div>
         </div>
     </div>
 </form>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script>
+    function crearUsuari(){
+        document.location.href = "http://localhost:8080/createuser"
+    }
+</script>
 </body>
 </html>

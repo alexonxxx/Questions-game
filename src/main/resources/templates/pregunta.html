@@ -1,54 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="UTF-8"/>
-    <title>Pregunta tribial</title>
-    <style type="text/css">
+    <meta charset="UTF-8"></meta>
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'></link>
+    <style>
 
         input {
             margin: 20px 0;
             line-height: 34px;
-            top:10%;
-            left: 25%;
             position: relative;
             cursor: pointer;
             user-select: none;
+            outline:none !important;
+            width:100%;
+            box-shadow:4px 4px 10px #555;
+        }
+
+        button:active {
+
             outline:none;
-            width:50%;
+        }
+
+
+        button:before, button:after {
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 0;
+            border-style: solid;
+            border-width: 0;
+            outline:none;
+        }
+
+
+
+
+        button.btn-primary:before {
+            border-color: #2e6da4 #2e6da4 #2e6da4 transparent;
+        }
+        button.btn-primary:after {
+            border-color: #2e6da4 transparent #2e6da4 #2e6da4;
+        }
+
+        button.btn-success:before {
+            border-color: #398439 #398439 #398439 transparent;
+        }
+        button.btn-success:after {
+            border-color: #398439 transparent #398439 #398439;
+        }
+
+        button.btn-warning:before {
+            border-color: #d58512 #d58512 #d58512 transparent;
+        }
+        button.btn-warning:after {
+            border-color: #d58512 transparent #d58512 #d58512;
+        }
+
+
+        button.btn-danger:before {
+            border-color: #ac2925 #ac2925 #ac2925 transparent;
+        }
+        button.btn-danger:after {
+            border-color: #ac2925 transparent #ac2925 #ac2925;
         }
 
     </style>
 </head>
-<body>
-<div class="list-group" style="background-color: white; border-radius: 4px; padding-left: 3%">
-    <h1>Pregunta: <span th:text="${pregunta.enunciat}"/></h1>
-</div>
-<form method="POST" th:object="${pregunta}"  th:action="${flowExecutionUrl}">
-<div class="container">
+<body style="padding-left: 10%; padding-right: 10%; background: url(http://fullhdpictures.com/wp-content/uploads/2016/03/Blur-Backgrounds.jpg) no-repeat center fixed; background-size: cover;">
+<div >
 
-    <div class="row">
+    <div class="row col-md-12">
+        <div class="col-md-2"></div>
 
-        <div class="col-md-6">
-            <input type="submit" th:value="${pregunta.resposta1}" />
+        <!--<form method="POST" th:object="${pregunta}"  th:action="${flowExecutionUrl}">-->
+            <div class="col-md-8 container modal-content" style="background-color: white; padding-left: 5%; padding-right: 5%; padding-bottom: 2%; margin-top: 15%; border-radius: 7px">
+                <div class="modal-header">
+                    <h2 style="text-align: center" th:text="${pregunta.enunciat}"></h2>
+                </div>
+                <div class="modal-body">
 
-            <input  type="submit" th:value="${pregunta.resposta2}"  />
+                    <input class="btn btn-warning " type="submit" th:value="${pregunta.resposta1}" th:onclick="'calling(\'' + ${pregunta.resposta1} + '\');'"/>
 
+                    <input class="btn btn-primary" type="submit" th:value="${pregunta.resposta2}" th:onclick="'calling(\'' + ${pregunta.resposta2} + '\');'" />
 
-            <input  type="submit"  th:value="${pregunta.resposta3}"  />
-            <input  type="submit"  th:value="${pregunta.resposta4}"  />
+                    <input class="btn btn-success" type="submit" th:value="${pregunta.resposta3}" th:onclick="'calling(\'' + ${pregunta.resposta3} + '\');'"/>
 
-
-
-        </div>
-
-
+                    <input class="btn btn-danger" type="submit" th:value="${pregunta.resposta4}" th:onclick="'calling(\'' + ${pregunta.resposta4} + '\');'"/>
+                </div>
+            </div>
+        <!--</form>-->
+        <div class="col-md-2"></div>
     </div>
-
-
 </div>
-</form>
 
-
+<script>
+    function calling(inputId) {
+        window.location = '/pregunta/'+inputId;
+    }
+</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 </body>
 </html>

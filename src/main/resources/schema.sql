@@ -162,7 +162,7 @@ create table PUNTUACIO
    PREGUNTESINCORRECTES NUMBER(4)            default 0,
    PERCENTATGE          NUMBER(5,2)          default 0,
    constraint PK_PUNTUACIO primary key (IDCATEGORIA, NOMUSUARI),
-   constraint AK_IDPUNTUACIO_PUNTUACI unique (IDCATEGORIA)
+
 );
 
 /*==============================================================*/

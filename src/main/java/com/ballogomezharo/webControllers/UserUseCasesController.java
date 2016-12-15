@@ -42,10 +42,6 @@ public class UserUseCasesController {
         return "showUser";
     }
 
-    @GetMapping("usuaris")
-    public List<Usuari> listUsers() {
-        return userUseCases.getUsuaris();
-    }
 
 
     @GetMapping("usuaris/{usuari}")
@@ -65,17 +61,11 @@ public class UserUseCasesController {
     @PostMapping("createuser")
     public String processCreateUser(@Valid Usuari usuari, Errors errors, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) return "userform";
-
         loggingInUser(usuari);
         redirectAttributes.addAttribute("nom", usuari.getNom());
         redirectAttributes.addAttribute("mail", usuari.getMail()); // this attribute shows in the calling url as a parameter
         redirectAttributes.addAttribute("contrassenya", usuari.getContrasenya()); // this attribute shows in the calling url as a parameter
-        return "redirect:/usuaris"; //in this way username is scaped and dangerous chars changed
-    }
-
-    @GetMapping("byebye")
-    public String byebye() {
-        return "byebye";
+        return "redirect:/"; //in this way username is scaped and dangerous chars changed
     }
 
     @GetMapping("login")
@@ -89,19 +79,15 @@ public class UserUseCasesController {
         return user.getPuntacions();
     }
 
-    @GetMapping("canceledFlow")
+    /*@GetMapping("canceledFlow")
     public String cancel(){
         return "canceledFlow";
-    }
+    }*/
     @GetMapping("categoriaNotFound")
     public String noCategoria(){
         return "categoriaNotFound";
     }
 
-    @GetMapping("menuInicial")
-    public String menuInici(){
-        return "menuInicial";
-    }
     private void loggingInUser(Usuari usuari) {
         //saving to authoritation database
         usuariRepository.inserirUsuari(usuari);

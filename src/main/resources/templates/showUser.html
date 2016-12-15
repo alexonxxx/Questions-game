@@ -26,20 +26,29 @@
             <ul class="nav navbar-nav">
                 <li><a href="http://localhost:8080/entrarPreguntesFlow" style="color: white; font-weight: bold">Entrar
                     preguntes</a></li>
-                <li><a href="#about" style="color: white; font-weight: bold">NNNN</a></li>
                 <li>
                     <a href="http://localhost:8080/Weather" style="color: white; font-weight: bold">Weather</a>
-
+                </li>
+                <li>
+                    <a href="http://localhost:8080/partidaNova" style="color: white; font-weight: bold">Nova partida</a>
+                </li>
+                <li>
+                    <a href="http://localhost:8080/puntuacio" style="color: white; font-weight: bold">Puntuació</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://localhost:8080/logout" style="color: white; font-weight: bold;">Logout</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <div style="margin-top: 10%">
-    <div class="list-group" style="background-color: white; border-radius: 4px; padding-left: 3%">
+    <div class="list-group" style="background-color: white; border-radius: 4px; padding-left: 3%; box-shadow:4px 4px 10px #555;">
         <h1>Nom d'usuari: <span th:text="${usuari.nom}"/></h1>
     </div>
-    <ul class="list-group" style="background-color: white; border-radius: 4px; list-style: none; padding-left: 3%; padding-right: 3%; padding-bottom: 2%">
+    <ul class="list-group" style="background-color: white; border-radius: 4px; list-style: none; padding-left: 3%; padding-right: 3%; padding-bottom: 2%;  box-shadow:4px 4px 10px #555;">
         <div style="margin-top: 2%"> <h3>Puntuacions</h3> </div>
         <li style="font-weight: bold">
             Puntuació total: <div class="list-group-item" style="font-weight: bold;" th:text="${usuari.puntuacioTotal}">Puntuació total</div>

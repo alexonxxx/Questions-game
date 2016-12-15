@@ -50,15 +50,19 @@ public class Partida {
         this.respostesIncorrectes++;
     }
 
-public boolean comprobarResposta(int i,Resposta resposta) {
-    if (this.preguntes.get(i).respostaCorrecte() == resposta) {
-        sumarCorrecte();
-        return true;
-    } else {
-        sumarIncorrecte();
-        return false;
+    public boolean comprobarResposta(int i,String resposta) {
+        if (this.preguntes.get(i).respostaCorrecte().getResposta().equals(resposta)) {
+            sumarCorrecte();
+            System.out.println("Correcte");
+            System.out.println(this.respostesCorrectes);
+            return true;
+        } else {
+            sumarIncorrecte();
+            System.out.println("Incorrecte");
+            System.out.println(this.respostesIncorrectes);
+            return false;
+        }
     }
-}
 
 
     public String toString() {

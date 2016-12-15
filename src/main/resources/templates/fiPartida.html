@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Fi Partida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'></link>
 </head>
-<body>
-<h1>Resultat de la Partida</h1>
-<form th:object="${partida}">
-    Preguntes encertades: <div th:text="${partida.respostesCorrectes}">Respostes Incorrectes</div>
-    Preguntes fallades: <div th:text="${partida.respostesIncorrectes}">Respostes Incorrectes</div>
-</form>
+<body style="background: url(http://fullhdpictures.com/wp-content/uploads/2016/03/Blur-Backgrounds.jpg) no-repeat center fixed; background-size: cover; padding-left: 10%; padding-right: 10%">
+
+<div class="col-md-12">
+	<div class="col-md-3"></div>
+
+	<div class="col-md-6 container modal-content" style="margin-top: 15%">
+		<div class="modal-header">
+		<h1 style="text-align: center">Resultado de la partida</h1>
+		</div>
+		<div class="modal-body">
+		<form th:object="${partida}">
+		    Preguntas acertadas: <div th:text="${partida.respostesCorrectes}"></div>
+		   	Preguntas falladas: <div th:text="${partida.respostesIncorrectes}"></div>
+		</form>
+		</div>
+		<div class="modal-body">
+			<button class="btn btn-primary" onclick="goPrincipal()" style="width: 100%" value="OK">Ok</button>
+		</div>
+	</div>
+
+	<div class="col-md-3"></div>
+</div>
+<script>
+	function goPrincipal(){
+		document.location.href = "http://localhost:8080/";
+	}
+</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>	
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 </body>
 </html>

@@ -31,7 +31,7 @@ public class UserUseCases {
     }
 
     public void novaPartida(){
-            controladorPartida= new ControladorPartida(retornarUsuari(), preguntaRepository,puntuacioRepository);
+        controladorPartida= new ControladorPartida(retornarUsuari(), preguntaRepository,puntuacioRepository);
     }
 
     public List<Usuari> getUsuaris() {
@@ -46,12 +46,14 @@ public class UserUseCases {
         }
     }
     public Partida getPartida(){
-       return  this.controladorPartida.getPartida();
+        return  this.controladorPartida.getPartida();
     }
 
-    public void comprobarResposta(Resposta resposta,Categoria categoria){
-        this.controladorPartida.comprobarResposta(resposta, categoria);
+    public boolean comprobarResposta(String resposta,Categoria categoria){
+        return this.controladorPartida.comprobarResposta(resposta, categoria);
+
     }
+
 
     public void cambiarPuntuacio(){
         this.controladorPartida.cambiarPuntuacio();
@@ -59,8 +61,8 @@ public class UserUseCases {
 
     public Usuari retornarUsuari(){
         String nom= SecurityService.findLoggedInUsername();
-       Usuari usuari= this.usuariRepository.getOne(nom);
-              return usuari;
+        Usuari usuari= this.usuariRepository.getOne(nom);
+        return usuari;
     }
 
     public Pregunta getPregunta(int i){
